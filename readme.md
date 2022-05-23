@@ -11,3 +11,5 @@ passport
 passport-local
 
 express-session
+
+connect-mongo

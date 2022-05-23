@@ -11,12 +11,13 @@ const passportLocal=require('./config/passport-local-strategy');
 
 //body parser for decrpting form data
 const bodyParser = require('body-parser');
+const { Store } = require('express-session');
 app.use(bodyParser.urlencoded({extended: false}));
-
+const MongoStore=require('connect-mongo');
 //middleware cookie
 app.use(cookieParser());
 
-
+ 
 //static files
 app.use(express.static("./assets"))
 
@@ -35,6 +36,9 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
+
+
+//mongo store is used to store the session cookie in the cookire
 //middleware for session cookie
 app.use(session({
     name:'codeial',
@@ -44,12 +48,23 @@ app.use(session({
     resave: false,
     cookie:{
         maxAge:(1000*60*100)
-    }
+    }, 
+    store :  MongoStore.create ({
+        
+            mongoUrl:'mongodb://localhost/codeial_devolopment_db',
+            autoRemove:'disabled'
+        
+    },
+    function(err){
+        console.log(err || 'connect-mongodb set-up')
+    }) 
 
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
+//checking whether any cookie is present or not
+app.use(passport.setAuthenticatedUser);
 
 app.use('/',require('./routes'))
 
