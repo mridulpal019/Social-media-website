@@ -1,0 +1,7 @@
+packages install 
+ejs
+express
+mongoose
+express-ejs-layouts
+body-parser
+cookie-parser

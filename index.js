@@ -1,10 +1,18 @@
 const express=require('express');
+const cookieParser=require('cookie-parser');
 const app=express();
 const port=8000; //80 for production
 const expressLayouts= require('express-ejs-layouts');
 const db = require("./config/mongoose");
-//static files
+//body parser for decrpting form data
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
 
+//middleware cookie
+app.use(cookieParser());
+
+
+//static files
 app.use(express.static("./assets"))
 
 //before route

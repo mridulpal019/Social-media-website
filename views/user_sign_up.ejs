@@ -1,15 +1,17 @@
 <div class="outer">
     <div class="sign-up-body">
             <h1>Sign Up</h1>
-            <form action="/register" method="post" id="register">
-                    <label for="email">Email</label><br>
-                    <input type="email" name="email"><br>
+            <form action="/users/create" method="post" id="create">
+                <label for="Name">Name</label><br>
+                <input type="text" name="name" placeholder="mridul" required><br>    
+                <label for="email">Email</label><br>
+                    <input type="email" name="email" required><br>
                     <label for="password">Password</label><br>
-                    <input type="text" name="password"><br>
-                    <label for="Name">Name</label><br>
-                    <input type="text" name="name"><br>
+                    <input type="password" name="password" required><br>
+                    <label for="confirm password">Confirm Password</label> <br>
+                    <input type="password" name="confirm_password" required><br>
 
-                    <button type="submit" form="register">Sign Up</button> <span>Already has an account! <a href="/users/sign-in">LogIn</a></span>
+                    <button type="submit" form="create" value="Sign Up">Sign Up</button> <span>Already has an account! <a href="/users/sign-in">LogIn</a></span>
             </form>
     </div>
 </div>
