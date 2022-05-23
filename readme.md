@@ -5,3 +5,9 @@ mongoose
 express-ejs-layouts
 body-parser
 cookie-parser
+
+passport
+
+passport-local
+
+express-session
