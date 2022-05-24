@@ -12,5 +12,7 @@ router.get('/',homeController.home);
 router.use('/users',require('./users'));
 
 router.use('/posts',require('./posts'));
-// router.post('/register',homeController.createUser);
+
+router.use('/comments',require('./comments'));
+// router.post('/register',homeController.createUser;);
 module.exports =router;
