@@ -1,0 +1,26 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: lightsalmon;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+footer .website-navigatar {
+  flex-direction: column;
+}

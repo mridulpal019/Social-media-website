@@ -1,0 +1,26 @@
+nav { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(127, 204, 255);
+    height: 10%;
+  
+    .website-name{
+        margin: 2%;
+        color: white;
+        font-size: xx-large;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    li { display: inline-block; }
+  
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }
