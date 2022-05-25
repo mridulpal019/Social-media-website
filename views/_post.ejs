@@ -1,0 +1,35 @@
+<li>
+    <!--- check for user if he can delete it-->
+    <p><% if ((locals.user) && (locals.user.id == post.user.id)) {%>
+        <small>
+            <a href="/posts/destroy/<%= post.id%>">Delete</a>
+        </small>
+        <%}%>
+
+    <%= post.content %>
+    <br>
+    <small><%= post.user.name %></small>
+ </p>
+ <div class="post-comments">
+ <% if (locals.user) {%>
+ <form action="/comments/create" method="post">
+     <textarea name="content"  cols="20" rows="2" placeholder="write your comment here" required></textarea>
+     <input type="submit" value="Comment">
+     <input type="hidden" name="post" value="<%= post._id%>">
+ </form>
+ <%}%>
+
+ <div class="post-comments-list">
+     <ul id ="post-comments-<%= post._id%>">
+         <% for (comment of post.comments){%>
+            
+         <%- include('_comment')  -%>
+          
+         <%}%>   
+     </ul>
+ </div>
+
+
+</div>
+
+ </li>

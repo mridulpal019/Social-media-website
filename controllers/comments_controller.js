@@ -33,15 +33,30 @@ module.exports.create= function(req,res){
 module.exports.destroy = function(req,res){
     Comment.findById(req.params.id,function(err,comment){
         if (err){
+            console.log("error in deleting comment!!")
 
         }
+        // console.log(comment.post.user)
+        // Post.findById(comment.post)
+        // .populate('user')
+        // .populate({ //for specifying to fetch user of the comment
+        //     path:'comments',
+        //     populate:{
+        //         path:'user'
+        //     }
+        // })
+        // .exec(function(err,post){
+        //     return post
+    
+        // });
+         
         //req.user is provided by passport part where we assign res.locals.user=req.user
         // .id means convertin the object id into string
-        if (comment.user == req.user.id){
+        if ((comment.user == req.user.id) || ( comment.post.user == req.user.id ) ){
             //storing post id caz if we remove commnet first its attribute will lost as well
             let postid=comment.post
             comment.remove();
-            //$pull will remove the content from that arrat
+            //$pull will remove the content from that array
             Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}},function(err,post){
                 // post.comment.pop(comment);
                 // post.save();
