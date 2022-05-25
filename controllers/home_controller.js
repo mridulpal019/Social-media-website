@@ -9,10 +9,10 @@ module.exports.home =function(req,res){
     // });
     // });
 
-//populate the user for each post
+//populate the user for each post and comment
     Post.find({})
     .populate('user')
-    .populate({
+    .populate({ //for specifying to fetch user of the comment
         path:'comments',
         populate:{
             path:'user'
