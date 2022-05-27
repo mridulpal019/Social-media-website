@@ -1,37 +1,36 @@
 const  Post =require('../models/post');
 const User =require('../models/user');
 
-module.exports.home =function(req,res){
-    // Post.find({},function(err,posts){
-    //     return res.render('home',{
-    //         title:"Codeial |home",
-    //         posts:posts
-
-    // });
-    // });
+module.exports.home =async function(req,res){
 
 //populate the user for each post and comment
-    Post.find({})
+try{
+    let posts =await Post.find({})
     .populate('user')
     .populate({ //for specifying to fetch user of the comment
         path:'comments',
         populate:{
             path:'user'
         }
-    })
-    .exec(function(err,posts){
-        User.find({},function(err,users){
-            if (err){}
-            return res.render('home',{
-                title:"Codeial |home",
-                posts:posts,
-                all_users:users
-    
-        }); 
-        });
+    });
+    let users= await User.find({});
         
-    })
+        return res.render('home',{
+        title:"Codeial |home",
+        posts:posts,
+        all_users:users
+
+});
+
+}catch(err){
+console.log(err,'error')
 }
+    
+}
+    
+        
+    
+
 
 
 
