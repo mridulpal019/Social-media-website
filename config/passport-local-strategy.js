@@ -6,19 +6,21 @@ const User =require('../models/user');
 //telling passport.js to use this strategy
 passport.use(new LocalStrategy({
     
-    usernameField:'email'
+    usernameField:'email',
+    //after this we can add req
+    passReqToCallback:true
     },
-    function(email,password,done){
+    function(req,email,password,done){
         
         //find a user and estalblish the indentity
         User.findOne({email:email},function(err,user){
             
             if (err){
-                console.log("error in finding the user");
+                req.flash('error',err);
                 return done(err);
             }
             if (!user || user.password != password){
-                console.log('Invalid username/password');
+                req.flash('error','Invalid Username/Password');
                 return done(null,false);//second arguments tells the auth is not done while 1 is reserved for err
                         }
                     

@@ -15,3 +15,7 @@ express-session
 connect-mongo
 
 node-sass-middleware
+
+connect-flash
+
+Noty

@@ -10,8 +10,9 @@ const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 //
 const sassMiddleware=require('node-sass-middleware');
-
-
+//flash set up
+const flash= require('connect-flash');
+const customMiddleware = require('./config/middleware');
 
 //body parser for decrpting form data
 const bodyParser = require('body-parser');
@@ -80,6 +81,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 //checking whether any cookie is present or not
 app.use(passport.setAuthenticatedUser);
+
+//flash set up we have to put it after session use
+app.use(flash());
+app.use(customMiddleware.setFlash);
 
 app.use('/',require('./routes'))
 

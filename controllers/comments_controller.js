@@ -14,20 +14,14 @@ module.exports.create= async function(req,res){
         post.comments.push(comment);
         post.save();
        
-        return res.redirect('back');
-      
-        
+        return res.redirect('back');      
     }
 
   }catch(err){
       console.log(err,'error');
       return;
   }
-   
-    
-    
-    
-   
+  
 }
 
 
@@ -53,6 +47,5 @@ module.exports.destroy =async function(req,res){
      console.log(err,'error');
      return;
  }  
-    
-    
+   
 }

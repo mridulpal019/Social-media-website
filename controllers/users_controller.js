@@ -27,8 +27,10 @@ module.exports.update =function(req,res){
 
 module.exports.signUp = function(req,res){
     if (req.isAuthenticated()){
+        req.flash('error','You already have an account')
         return res.redirect('/users/profile')
     }
+    req.flash('Success','Registered Successfully')
     return res.render('user_sign_up',{
         title:"codeial |Sign Up"
     })
@@ -36,6 +38,7 @@ module.exports.signUp = function(req,res){
 
 module.exports.signIn = function(req,res){
     if (req.isAuthenticated()){
+        req.flash('error','You are Logged In Already!!!')
        return res.redirect('/users/profile')
     }
     return res.render('user_sign_in',{
@@ -71,6 +74,8 @@ module.exports.create =function(req,res){
 }
 
 module.exports.createSession =function(req,res){
+    //flash use
+    req.flash('success','Logged in Successfuly');
     return res.redirect('/');
 }
 
@@ -81,8 +86,10 @@ module.exports.destroySession=function(req,res){
         if (err){
             console.log("error in logging out")
         }
+         
     });
-
+    console.log('loggout')
+    req.flash('success','Logged out'); 
     return res.redirect('/')
 }
 
