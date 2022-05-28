@@ -4,10 +4,19 @@ const Comment=require('../models/comment');
 
 module.exports.create= async function(req,res){
   try{
-      await Post.create({
+      let post=await Post.create({
      content:req.body.content,
       user:req.user._id
 });
+//for sending data back 
+if(req.xhr){
+  return res.status('200').json({
+    data:{
+    post:post
+  },  
+  message:'Postcreated !'
+})
+}
 req.flash('success','Posted Successfully')
 return res.redirect('back');
 

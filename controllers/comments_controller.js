@@ -13,7 +13,7 @@ module.exports.create= async function(req,res){
             //for updating the posts
         post.comments.push(comment);
         post.save();
-       
+       req.flash('success','Commented !!')
         return res.redirect('back');      
     }
 
@@ -38,8 +38,10 @@ module.exports.destroy =async function(req,res){
         let post =await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}});
             // post.comment.pop(comment);
             // post.save();
+            req.flash('success','Comment deleted successfully')
             return res.redirect('back');
     }else{
+        req.flash('error','You cannot delete comment')
         return res.redirect('back')
     }
 

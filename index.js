@@ -24,7 +24,7 @@ app.use(sassMiddleware({
     debug:true,
     outputStyle:'expanded',
     prefix:'/css'
-
+ 
 }))
 
 
@@ -83,7 +83,9 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
 //flash set up we have to put it after session use
+
 app.use(flash());
+
 app.use(customMiddleware.setFlash);
 
 app.use('/',require('./routes'))

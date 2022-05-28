@@ -1,4 +1,5 @@
 const User =require('../models/user');
+const passport=require('passport');
 
 module.exports.profile= function(req,res){
 
@@ -30,7 +31,7 @@ module.exports.signUp = function(req,res){
         req.flash('error','You already have an account')
         return res.redirect('/users/profile')
     }
-    req.flash('Success','Registered Successfully')
+    
     return res.render('user_sign_up',{
         title:"codeial |Sign Up"
     })
@@ -48,26 +49,28 @@ module.exports.signIn = function(req,res){
 //get the sign up data 
 module.exports.create =function(req,res){
     if (req.body.password != req.body.confirm_password){
+        req.flash('error','Password and Confirm password is not matching')
         return res.redirect('back');
     }
 
     User.findOne({email:req.body.email},function(err,user){
         if (err){
-            console.log("error in finding the user in signnig up");return;
-
+            req.flash('error',err);
+            return;
         }
 
         if (!user){
             User.create(req.body,function(err,user){
                 if (err){
-                    console.log("error in creating user")
+                    req.flash('error',err)
                     return;
                 }
-
+                req.flash('success','Registered Successfully');
                 return res.redirect('/users/sign-in')
             })
         }else{
-            return res.redirect('back')
+            req.flash('error','Email is already registered.')
+            return res.redirect('back');
         }
     })
 
@@ -77,20 +80,20 @@ module.exports.createSession =function(req,res){
     //flash use
     req.flash('success','Logged in Successfuly');
     return res.redirect('/');
-}
+} 
 
 
 module.exports.destroySession=function(req,res){
     //passport provide this option to logout
     req.logout(function(err){
-        if (err){
-            console.log("error in logging out")
+        if(err){
+
         }
-         
     });
-    console.log('loggout')
-    req.flash('success','Logged out'); 
-    return res.redirect('/')
+    console.log('loggout');
+    req.flash('success','Log out Successfully');
+     
+    return res.redirect('/');
 }
 
 

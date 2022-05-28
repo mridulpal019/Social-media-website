@@ -6,6 +6,7 @@ module.exports.home =async function(req,res){
 //populate the user for each post and comment
 try{
     let posts =await Post.find({})
+    .sort('-createdAt')//for sorting the post a/c to their time
     .populate('user')
     .populate({ //for specifying to fetch user of the comment
         path:'comments',
