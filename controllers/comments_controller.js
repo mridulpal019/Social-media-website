@@ -13,6 +13,16 @@ module.exports.create= async function(req,res){
             //for updating the posts
         post.comments.push(comment);
         post.save();
+        
+        if(req.xhr){
+            return res.status(200).json({
+              data:{
+              comment:comment
+            }, 
+            message:'comment created !'
+          })
+          }
+          
        req.flash('success','Commented !!')
         return res.redirect('back');      
     }

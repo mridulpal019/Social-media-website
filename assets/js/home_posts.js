@@ -56,44 +56,70 @@
 
 
     // //method to delete a post from dom
-    // let deletePost=function(deleteLink){
-    //     console.log("delete is called")
-    //     console.log(deleteLink);
-    //     $(deleteLink).click(function(e){
-    //         e.preventDefault();
-    //         console.log("delete is called running");
-    //         console.log(deleteLink);
-          
-    //         $.ajax({
-    //             type:'get',
-    //             url:$(deleteLink).prop('href'),
-    //             success:function(data){
-                   
-    //                  $(`#post-${data.data.post_id}`).remove();
-    //             },
-    //             error:function(error){
-    //                 console.log(error.responseText)
-    //             }
-    //         })
-    //     });
-        
-    // }
-    let deletePost = function(deleteLink){
+    let deletePost=function(deleteLink){
+      
         $(deleteLink).click(function(e){
             e.preventDefault();
-
+        
+          
             $.ajax({
-                type: 'get',
-                url: $(deleteLink).prop('href'),
-                success: function(data){
-                    console.log("delete is called running");
-                    $(`#post-${data.data.post_id}`).remove();
-                },error: function(error){
-                    console.log(error.responseText);
+                type:'get',
+                url:$(deleteLink).prop('href'),
+                success:function(data){
+                     $(`#post-${data.data.post_id}`).remove();
+                },
+                error:function(error){
+                    console.log(error.responseText)
                 }
-            });
-
+            })
         });
+        
     }
+
+    //method to add comment
+    let createComment=function(){
+         let newCommentform=$('#new-comment-form');
+         newCommentform.submit(
+             function(e){
+                 e.preventDefault();
+
+                 $.ajax({
+                    type:'post',
+                    url:'/comments/create',
+                    //this convert form data to json
+                    data:newCommentform.serialize(),
+                    success:function(data){
+                             let newComment=newCommentDom(data.data.comment);
+                             $('.post-comments-list>ul').prepend(newComment);
+                             deletePost($(' .delete-comment-button',newComment));//space should be there 
+                    },
+                    error:function(error){
+                        console.log(error.responseText);
+                    }
+   
+                });
+
+             }
+
+         )
+
+    }
+
+    //comment in dom
+    let newCommentDom=function(comment){
+        return $(`<li id="comment-${comment._id} ">
+        <p>
+            
+                <small>
+                    <a href="/comments/destroy/${comment._id}">Delete</a>
+                </small>
+            ${comment.content}
+            <br>
+            <small>${comment.user.name}</small>
+        </p>
+    </li>`)
+    }
+
     createPost();
+    createComment();
 }
