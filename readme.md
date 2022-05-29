@@ -19,3 +19,5 @@ node-sass-middleware
 connect-flash
 
 Noty
+
+multer
