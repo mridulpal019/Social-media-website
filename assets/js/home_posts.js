@@ -91,7 +91,7 @@
                     success:function(data){
                              let newComment=newCommentDom(data.data.comment);
                              $('.post-comments-list>ul').prepend(newComment);
-                             deletePost($(' .delete-comment-button',newComment));//space should be there 
+                             deleteComment($(' .delete-comment-button',newComment));//space should be there 
                     },
                     error:function(error){
                         console.log(error.responseText);
@@ -119,6 +119,29 @@
         </p>
     </li>`)
     }
+
+    //delete comment
+    let deleteComment=function(cdeleteLink){
+      
+        $(cdeleteLink).click(function(e){
+            e.preventDefault();
+        
+            console.log('a')
+            $.ajax({
+                type:'get',
+                url:$(cdeleteLink).prop('href'),
+                success:function(data){
+                    console.log('a')
+                     $(`#comment-${data.data.comment_id}`).remove();
+                },
+                error:function(error){
+                    console.log(error.responseText)
+                }
+            })
+        });
+        
+    }
+
 
     createPost();
     createComment();
