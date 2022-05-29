@@ -12,6 +12,7 @@
                  success:function(data){
                           let newPost=newPostDom(data.data.post);
                           $('#posts-list-container>ul').prepend(newPost);
+                          deletePost($(' .delete-post-button',newPost));//space should be there 
                  },
                  error:function(error){
                      console.log(error.responseText);
@@ -25,7 +26,7 @@
         return $(`<li id="post-${post._id} ">
         <p>
             <small>
-                <a class="delete-post-button" href="/posts/destroy/${post.id}">Delete</a>
+                <a class="delete-post-button" href="/posts/destroy/${post._id}">Delete</a>
             </small>
     
             ${post.content}
@@ -56,21 +57,43 @@
 
     // //method to delete a post from dom
     // let deletePost=function(deleteLink){
+    //     console.log("delete is called")
+    //     console.log(deleteLink);
     //     $(deleteLink).click(function(e){
     //         e.preventDefault();
-
+    //         console.log("delete is called running");
+    //         console.log(deleteLink);
+          
     //         $.ajax({
     //             type:'get',
     //             url:$(deleteLink).prop('href'),
     //             success:function(data){
-    //                 $(`#post-${data.post_id}`).remove();
-
+                   
+    //                  $(`#post-${data.data.post_id}`).remove();
     //             },
     //             error:function(error){
-    //                 console.log(error)
+    //                 console.log(error.responseText)
     //             }
     //         })
-    //     })
+    //     });
+        
     // }
+    let deletePost = function(deleteLink){
+        $(deleteLink).click(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'get',
+                url: $(deleteLink).prop('href'),
+                success: function(data){
+                    console.log("delete is called running");
+                    $(`#post-${data.data.post_id}`).remove();
+                },error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+
+        });
+    }
     createPost();
 }
