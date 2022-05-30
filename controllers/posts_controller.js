@@ -10,8 +10,8 @@ module.exports.create= async function(req,res){
       });
       //opulating user before sending the data so that we can access user.name in post section
       let ppost=await Post.findById(post._id)
-             .populate('user');
-     
+             .populate('user','name');//only name is populated
+    
   
 
 
