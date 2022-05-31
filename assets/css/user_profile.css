@@ -1,3 +1,31 @@
-body {
-  background-color: cyan;
+.profile_outer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.profile_outer .cover_photo {
+  height: 70vh;
+  position: relative;
+}
+
+.profile_outer .cover_photo img {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.profile_outer .profile-pic {
+  position: absolute;
+  left: 12%;
+  bottom: 01%;
+}
+
+.profile_outer .profile-pic img {
+  border: 5px solid whitesmoke;
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
 }

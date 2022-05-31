@@ -25,9 +25,6 @@ if(req.xhr){
 })
 }
 
-req.flash('success','Posted Successfully')
-return res.redirect('back');
-
   }catch(err){
 req.flash('error',err)
 return res.redirect('back');
@@ -54,14 +51,11 @@ try{
             message:"Post deleted"
           });
         }
-        // req.flash('success','Post deleted')
-        return res.redirect('back');
         
     }else{
         req.flash('error','You cannot delete this Post')
         return res.redirect('back')
     }
-
 
 }catch(err){
     req.flash('error',err)

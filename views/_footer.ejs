@@ -4,7 +4,12 @@
          <ul>
              <li>
                  <a href="/">Home</a>
-                 <a href="/users/profile/:id">Profile</a>
+                 <%if (locals.user){%>
+                 <a href="/users/profile/<%= user.id%>">Profile</a>
+                 <%}else{%>
+                  
+                    <a href="/users/sign-in">Sign in</a>
+                <%}%>
 
              </li>
          </ul>

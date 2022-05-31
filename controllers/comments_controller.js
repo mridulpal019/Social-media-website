@@ -4,8 +4,9 @@ const Post=require('../models/post');
 module.exports.create= async function(req,res){
   try{
     let post=await Post.findById(req.body.post);
+    console.log(post);
     if (post){
-         let comment= await Comment.create({
+         let comment = await Comment.create({
             content:req.body.content,
             user:req.user._id,
             post:req.body.post
@@ -13,6 +14,11 @@ module.exports.create= async function(req,res){
             //for updating the posts
         post.comments.push(comment);
         post.save();
+           //populating comment.user.name(only name is send so that end user cant find its password)
+         comment=await Comment.findById(comment._id)
+             .populate('user','name');
+        
+
 
         if(req.xhr){
             return res.status(200).json({

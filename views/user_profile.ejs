@@ -1,18 +1,16 @@
 <link rel="stylesheet" href="/css/user_profile.css">
-<img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px">
-        
+<div class="profile_outer">
 
-<% if (user.id == profile_user.id) { %>
-<!---if user matches show the update form-->
-<form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="" placeholder="Your name" value="<%= profile_user.name %>" required><br>
-        <label for="email">Email</label><br>
-        <input type="text" name="email" id="" placeholder="Your name" value="<%= profile_user.email %>">
-       <input type="file" name="avatar" placeholder="Profile Picture">
-        <input type="submit" value="Update">
-</form>
- <%}else{%>
+
+        <div class="cover_photo">
+                <img src="<%=profile_user.cover_photo%>" alt="No Cover photo TO show">
+        </div>
+        <div class="profile-pic">
+                 <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>" >
+        </div>
+        <p>
+                <!-- <img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px"> -->
+        </p>
         <p>
                 <%=profile_user.name%>
         
@@ -20,8 +18,36 @@
         <p>
                 <%=profile_user.email%>
         </p>
+
+
+  
+<% if (user.id == profile_user.id) { %>
+<!---if user matches show the update form-->
+
+
+<form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="" placeholder="Your name" value="<%= profile_user.name %>" required><br>
+        <label for="email">Email</label><br>
+        <input type="text" name="email" id="" placeholder="Your name" value="<%= profile_user.email %>">
+       <input type="file" name="avatar" placeholder="Profile Picture"><br>
+       <input type="file" name="cover_photo" placeholder="Cover Picture" id="Cover-Pic">
+        <input type="submit" value="Update">
+</form>
+ <%}else{%>
+
+        <!-- <p>
+                <img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px">
+        </p>
+        <p>
+                <%=profile_user.name%>
         
+        </p>
+        <p>
+                <%=profile_user.email%>
+        </p>
+         -->
 
         
 <%}%>
-
+</div>

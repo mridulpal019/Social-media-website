@@ -31,7 +31,7 @@ module.exports.update = async function(req,res){
         try{
            let user =await User.findById(req.params.id);
 
-           User.uploadedAvatar(req,res,function(err){
+           await User.uploadedAvatar(req,res,function(err){
                if (err){
                    console.log('*********multer err',err);
                }
@@ -47,9 +47,23 @@ module.exports.update = async function(req,res){
                    user.avatar =User.avatarPath +'/' +req.file.filename ;
                }
                user.save()
-               return res.redirect('back')
-             
+             return;
            })
+           
+            User.uploadedCoverPic(req,res,function(err){
+                if (err){console.log(err,'err in uploading the cover pic')}
+                if (req.file){
+                    if(user.cover_photo){
+                        fs.unlinkSync(path.join(__dirname,'..',user.cover_photo));
+                    }
+
+                    user.cover_photo=User.coverPicPath +'/' +req.file.filename
+                }
+                user.save()
+                return;
+            })
+
+           return res.redirect('back');
         }catch(rr){
             req.flash('error',err);
             return res.redirect('back');
