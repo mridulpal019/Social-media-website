@@ -12,6 +12,11 @@ nav .website-name {
   font-size: xx-large;
 }
 
+nav .website-name a {
+  text-decoration: none;
+  color: white;
+}
+
 nav ul {
   margin: 0;
   padding: 0;

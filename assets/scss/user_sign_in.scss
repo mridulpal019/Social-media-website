@@ -1,0 +1,51 @@
+body{
+    .outer{
+        // width: 100%;
+        height: 80%;
+        // margin: auto;
+        // border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .sign{
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: rgb(242, 244, 245);
+            width:40%;
+            h1{
+                text-align: center;
+            }
+            input{
+                border: .5px solid grey;
+                width: 95%;
+                height: 8vh;
+                margin: 2%;
+                background-color: rgb(223, 228, 230);
+                outline: none;
+                border-radius: 10px;
+            }
+            button{
+                width:95%;
+                margin: 2%;
+                height: 8vh;
+                background-color: rgb(107, 147, 227);
+                border:none;
+                border-radius: 8px;
+                color :white;
+                font-weight: bold;
+                font-size: larger;
+            }
+            p{
+                text-align: center;
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+       
+    }
+    .sign-up{
+        height: 90%;
+    }
+}

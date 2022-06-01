@@ -6,6 +6,10 @@ nav {
     height: 10%;
   
     .website-name{
+        a{
+          text-decoration: none;
+          color: white;
+        }
         margin: 2%;
         color: white;
         font-size: xx-large;

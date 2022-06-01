@@ -1,5 +1,8 @@
 body{
     // background-color:cyan
+    #layout-main{
+        height: auto;
+    }
 }
 
 .profile_outer{
@@ -9,7 +12,7 @@ body{
     margin: auto;
     .cover_photo{
         height: 70vh;
-        position: relative;
+        // position: relative;
         img{
             background-size: cover;
             height: 100%;
@@ -18,15 +21,37 @@ body{
             
         }
     }
-    .profile-pic{
-        position:absolute;
-        left: 12%;
-        bottom: 01%;
-        img{
-            border: 5px solid whitesmoke;
-            border-radius: 50%;
-            width: 15rem;
-            height: 15rem;
+    .info-box{
+        display: flex;
+        flex-direction: row;
+        // align-items: center;
+        .profile-pic{
+            // position:absolute;
+            // left: 12%;
+            // top:70%;
+            margin-left: 2%;
+            margin-top: -6%;
+            z-index: 1;
+            img{
+                border: 5px solid whitesmoke;
+                border-radius: 50%;
+                width: 12rem;
+                height: 12rem;
+            }
+            button{
+                margin-left: -20%;
+                
+            }
         }
+
+        .username{
+            font-size: larger;
+            font-weight: bolder;
+            font-family: sans-serif;
+            margin-left: 2%;
+            margin-top: 2%;
+        }
+        
     }
+    
 }

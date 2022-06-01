@@ -3,13 +3,26 @@
 }
 
 #home-container #feed-posts {
-  width: 70%;
+  width: 80%;
   padding: 10px;
   height: 100%;
 }
 
 #home-container #users-friends {
-  width: 30%;
-  border-left: 1px solid lightcoral;
+  width: 17%;
+  height: 100%;
   padding: 10px;
+  background-color: #e2ebf2;
+}
+
+#home-container #users-friends a {
+  text-decoration: none;
+}
+
+#home-container #users-friends img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-bottom: -0.5rem;
+  margin-right: .5rem;
 }

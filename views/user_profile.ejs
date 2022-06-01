@@ -5,19 +5,20 @@
         <div class="cover_photo">
                 <img src="<%=profile_user.cover_photo%>" alt="No Cover photo TO show">
         </div>
-        <div class="profile-pic">
-                 <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>" >
+        <div class="info-box">
+                <div class="profile-pic">
+                        <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>" >
+                        <% if (user.id == profile_user.id) { %>
+                        <button for=""><label for="profile-pic" class="btn"><i class="fas fa-camera"></i></label></button>
+                        <%}%>
+                 </div>
+                <div class="username"><%=profile_user.name%></div>
         </div>
         <p>
                 <!-- <img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px"> -->
         </p>
-        <p>
-                <%=profile_user.name%>
-        
-        </p>
-        <p>
-                <%=profile_user.email%>
-        </p>
+       
+       
 
 
   
@@ -26,28 +27,20 @@
 
 
 <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="post">
-        <label for="name">Name</label>
+        <label for="name">Name :</label>
         <input type="text" name="name" id="" placeholder="Your name" value="<%= profile_user.name %>" required><br>
-        <label for="email">Email</label><br>
+        <label for="email">Email :</label>
         <input type="text" name="email" id="" placeholder="Your name" value="<%= profile_user.email %>">
-       <input type="file" name="avatar" placeholder="Profile Picture"><br>
-       <input type="file" name="cover_photo" placeholder="Cover Picture" id="Cover-Pic">
+        <br>
+       <input type="file" name="avatar" style="display:none"  id="profile-pic" placeholder="Profile Picture">
+       <!-- <input type="file" name="cover_photo" placeholder="Cover Picture" id="Cover-Pic"> -->
         <input type="submit" value="Update">
 </form>
- <%}else{%>
-
-        <!-- <p>
-                <img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px">
-        </p>
-        <p>
-                <%=profile_user.name%>
-        
-        </p>
-        <p>
-                <%=profile_user.email%>
-        </p>
-         -->
-
-        
+<form action="/users/coverupdate/<%= profile_user.id%>" enctype="multipart/form-data" method="post">
+        <label for="">Cover Photo</label>
+        <input type="file" name="cover_photo" placeholder="cover Picture">
+        <input type="submit" value="cover" id="">
+</form>
+         
 <%}%>
 </div>

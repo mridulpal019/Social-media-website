@@ -1,14 +1,29 @@
+
 #home-container{
     display: flex;
+    // height: 100%;
     #feed-posts{
-        width:70%;
+        width:80%;
         padding: 10px;
         height: 100%;
     }
     #users-friends{
-        width:30%;
-        border-left: 1px solid lightcoral;
+        width:17%;
+        height: 100%;
+        // border-left: 1px solid lightcoral;
         padding: 10px;
+        background-color: rgb(226, 235, 242);
+        a{
+            text-decoration: none;
+            
+        }
+        img{
+            width:2rem;
+            height: 2rem;
+            border-radius: 50%;
+            margin-bottom: -0.5rem;
+            margin-right: .5rem;
+        }
         
     }
 }

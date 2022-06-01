@@ -22,10 +22,13 @@
     </section>
     <% if (locals.user) {%>
     <section id="users-friends">
-        <h4>friends</h4>
+        <h4>Friends</h4>
         <% for (u of all_users) {%>
+     
+          
+           
     <p>
-        <a href="/users/profile/<%= u.id%>"><%= u.name %></a>
+      <span><img src="<%= u.avatar %>" alt="Img" ></span>  <a href="/users/profile/<%= u.id%>"><%= u.name %></a>
     </p>
             <%}%>
     </section>

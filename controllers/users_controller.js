@@ -19,6 +19,39 @@ module.exports.profile= function(req,res){
        
 }
 
+module.exports.updatecover= async function(req,res){
+    if (req.user.id ==req.params.id){
+        try{
+           let user =await User.findById(req.params.id);
+
+           
+            User.uploadedCoverPic(req,res,function(err){
+                if (err){console.log(err,'err in uploading the cover pic')}
+                if (req.file){
+                    if(user.cover_photo != '/images/pp.jpg'){
+                        fs.unlinkSync(path.join(__dirname,'..',user.cover_photo));
+                        
+                    }
+
+                    user.cover_photo=User.coverPicPath +'/' +req.file.filename
+                }
+                user.save()
+                req.flash('success','Cover photo changed')  
+                return res.redirect('back');
+            })
+
+           
+        }catch(rr){
+            req.flash('error',err);
+            return res.redirect('back');
+        }
+
+    }else{
+        return res.status(401).send('Unauthorised');
+    }
+
+}
+
 module.exports.update = async function(req,res){
     // if (req.user.id ==req.params.id){
     //     User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
@@ -31,7 +64,7 @@ module.exports.update = async function(req,res){
         try{
            let user =await User.findById(req.params.id);
 
-           await User.uploadedAvatar(req,res,function(err){
+            User.uploadedAvatar(req,res,function(err){
                if (err){
                    console.log('*********multer err',err);
                }
@@ -40,30 +73,30 @@ module.exports.update = async function(req,res){
                user.email=req.body.email;
                if (req.file){
 //todo check if file is present in the server or not
-                  if(user.avatar){
+                  if(user.avatar != '/images/pp.jpg'){ 
                     fs.unlinkSync(path.join(__dirname,'..',user.avatar));
                   }
                    //this is saving the path of the uploaded file into the avatar field in the user
                    user.avatar =User.avatarPath +'/' +req.file.filename ;
                }
                user.save()
-             return;
-           })
+               return res.redirect('back');
+           });
            
-            User.uploadedCoverPic(req,res,function(err){
-                if (err){console.log(err,'err in uploading the cover pic')}
-                if (req.file){
-                    if(user.cover_photo){
-                        fs.unlinkSync(path.join(__dirname,'..',user.cover_photo));
-                    }
+            // User.uploadedCoverPic(req,res,function(err){
+            //     if (err){console.log(err,'err in uploading the cover pic')}
+            //     if (req.file){
+            //         if(user.cover_photo){
+            //             fs.unlinkSync(path.join(__dirname,'..',user.cover_photo));
+            //         }
 
-                    user.cover_photo=User.coverPicPath +'/' +req.file.filename
-                }
-                user.save()
-                return;
-            })
+            //         user.cover_photo=User.coverPicPath +'/' +req.file.filename
+            //     }
+            //     user.save()
+            //     return;
+            // })
 
-           return res.redirect('back');
+           
         }catch(rr){
             req.flash('error',err);
             return res.redirect('back');
@@ -108,11 +141,18 @@ module.exports.create =function(req,res){
         }
 
         if (!user){
-            User.create(req.body,function(err,user){
+            User.create({
+                name:req.body.name,
+                email:req.body.email,
+                password:req.body.password,
+                cover_photo:'/images/pp.jpg',
+                avatar:'/images/pp.jpg'
+            },function(err,user){
                 if (err){
                     req.flash('error',err)
-                    return;
+                    return; 
                 }
+                
                 req.flash('success','Registered Successfully');
                 return res.redirect('/users/sign-in')
             })
