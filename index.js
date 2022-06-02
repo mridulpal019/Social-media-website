@@ -10,7 +10,8 @@ const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 //jwt for api verfication
 const passportJWT=require('./config/passport-jwt-strategy');
-//
+//google auth
+const passportGoogle =require('./config/passport-google-oauth-strategy');
 const sassMiddleware=require('node-sass-middleware');
 //flash set up
 const flash= require('connect-flash');

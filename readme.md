@@ -25,3 +25,6 @@ multer
 passport-jwt
 <!-- generate an encrpyted token  -->
 jsonwebtoken
+<!-- for Third party authentication -->
+passport-google-oauth
+<!--for creating random unique passwords -->
