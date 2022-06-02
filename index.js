@@ -8,6 +8,8 @@ const db = require("./config/mongoose");
 const session = require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
+//jwt for api verfication
+const passportJWT=require('./config/passport-jwt-strategy');
 //
 const sassMiddleware=require('node-sass-middleware');
 //flash set up

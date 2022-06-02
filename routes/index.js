@@ -14,5 +14,7 @@ router.use('/users',require('./users'));
 router.use('/posts',require('./posts'));
 
 router.use('/comments',require('./comments'));
+//for api
+router.use('/api',require('./api'));
 // router.post('/register',homeController.createUser;);
 module.exports =router;

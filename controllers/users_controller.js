@@ -83,19 +83,7 @@ module.exports.update = async function(req,res){
                return res.redirect('back');
            });
            
-            // User.uploadedCoverPic(req,res,function(err){
-            //     if (err){console.log(err,'err in uploading the cover pic')}
-            //     if (req.file){
-            //         if(user.cover_photo){
-            //             fs.unlinkSync(path.join(__dirname,'..',user.cover_photo));
-            //         }
-
-            //         user.cover_photo=User.coverPicPath +'/' +req.file.filename
-            //     }
-            //     user.save()
-            //     return;
-            // })
-
+          
            
         }catch(rr){
             req.flash('error',err);

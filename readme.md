@@ -21,3 +21,7 @@ connect-flash
 Noty
 
 multer
+<!-- for api authrization -->
+passport-jwt
+<!-- generate an encrpyted token  -->
+jsonwebtoken
