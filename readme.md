@@ -28,3 +28,6 @@ jsonwebtoken
 <!-- for Third party authentication -->
 passport-google-oauth
 <!--for creating random unique passwords -->
+crypto
+<!-- for sending mail -->
+nodemailer

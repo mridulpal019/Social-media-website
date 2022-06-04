@@ -1,6 +1,8 @@
 const Comment=require('../models/comment');
 //for adding comments in post
 const Post=require('../models/post');
+const Like=require('../models/like');
+const commentsMailer=require('../mailers/comments_mailer');
 module.exports.create= async function(req,res){
   try{
     let post=await Post.findById(req.body.post);
@@ -16,8 +18,9 @@ module.exports.create= async function(req,res){
         post.save();
            //populating comment.user.name(only name is send so that end user cant find its password)
          comment=await Comment.findById(comment._id)
-             .populate('user','name');
-        
+             .populate('user','name email');
+        //for mailing 
+        // commentsMailer.newComment(comment);
 
 
         if(req.xhr){
@@ -52,6 +55,9 @@ module.exports.destroy =async function(req,res){
         comment.remove();
         //$pull will remove the content from that array
         let post =await Post.findByIdAndUpdate(postid,{$pull:{comments:req.params.id}});
+
+        await Like.deleteMany({likeable:comment._id,onModel:'Comment'});
+        
             // post.comment.pop(comment);
             // post.save();
             if(req.xhr){

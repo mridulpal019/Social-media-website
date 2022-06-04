@@ -13,7 +13,12 @@ try{
         populate:{
             path:'user'
         }
-    });
+    })
+    // .populate('comments')
+    // .populate('likes');//for post
+
+    // console.log(posts)
+    
     let users= await User.find({});
         
         return res.render('home',{
