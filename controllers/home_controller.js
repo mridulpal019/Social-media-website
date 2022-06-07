@@ -20,7 +20,6 @@ try{
     // console.log(posts)
     
     let users= await User.find({});
-        
         return res.render('home',{
         title:"Codeial |home",
         posts:posts,
@@ -44,5 +43,5 @@ console.log(err,'error')
 //     return;
 // }
 
-
+//ksouqwhnjlipcyiv
 //module.exports.actionname= function(req,res){} 

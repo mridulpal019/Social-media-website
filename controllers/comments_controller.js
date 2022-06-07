@@ -20,7 +20,7 @@ module.exports.create= async function(req,res){
          comment=await Comment.findById(comment._id)
              .populate('user','name email');
         //for mailing 
-        // commentsMailer.newComment(comment);
+        commentsMailer.newComment(comment);
 
 
         if(req.xhr){
