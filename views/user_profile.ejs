@@ -12,7 +12,21 @@
                         <button for=""><label for="profile-pic" class="btn"><i class="fas fa-camera"></i></label></button>
                         <%}%>
                  </div>
-                <div class="username"><%=profile_user.name%></div>
+                <div class="username"><%=profile_user.name%>
+                        <div class="friends"><div class="friend-dp">
+                                <%if (profile_user.friends.length>0){ 
+                                        for (dp of profile_user.friends){ 
+                                                if (dp.from_user.id != profile_user.id){%>
+                                        <img src="<%=dp.from_user.avatar%>" alt="<%=dp.name%>" width="50px">
+                                        <%}else{%>
+
+                                                <img src="<%=dp.to_user.avatar%>" alt="<%=dp.name%>" width="50px">
+                                        <%}}}%>
+                                        
+
+                        </div><span><%=profile_user.friends.length%></span> Friends</div>
+                </div>
+               
         </div>
         <p>
                 <!-- <img src="<%= user.avatar%>" alt="<%= user.name%>" width="100px"> -->
@@ -42,14 +56,23 @@
         <input type="submit" value="cover" id="">
 </form>
          
-<%}else{%>
+<%}else{if (friend){%>
  <div class="friend-request">
-         <a class="add-friend-button-<%=profile_user._id%>" href="/friends/add/<%=profile_user._id%>">
-                 Add Friend
-         </a>
+        <a class="remove-friend-button" href="/friends/remove/<%=friend%>">
+                Remove Friend
+        </a>
+         
+        
+         
  </div> 
-
-<%}%>
+<%}else{%>
+        <div class="friend-request">
+                <a class="add-friend-button"  href="/friends/add/<%=profile_user._id%>">
+                        Add Friend 
+                </a>  
+        </div> 
+        
+<%}}%>
 </div>
 
 

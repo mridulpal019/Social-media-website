@@ -15,11 +15,10 @@ express-session
 connect-mongo
 
 node-sass-middleware
-
+<!-- for notification -->
 connect-flash
-
 Noty
-
+<!-- for photo and vedio  -->
 multer
 <!-- for api authrization -->
 passport-jwt
@@ -31,3 +30,10 @@ passport-google-oauth
 crypto
 <!-- for sending mail -->
 nodemailer
+<!-- for queue-ing delayed jobs  -->
+kue
+
+
+software install
+mongodb
+redis

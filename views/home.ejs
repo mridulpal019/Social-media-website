@@ -22,7 +22,24 @@
     </section>
     <% if (locals.user) {%>
     <section id="users-friends">
-        <h4>Friends</h4>
+        <div class="my-friends">
+           
+            <h4>Friends</h4>
+           <%if (loginuser.friends.length>0){ 
+            for (dp of loginuser.friends){ 
+                    if (dp.from_user.id != user.id){%>
+                        <p>
+                            <span> <img src="<%=dp.from_user.avatar%>" alt="<%=dp.from_user.name%>" width="50px"></span>  <a href="/users/profile/<%=dp.from_user.id%>"><%=dp.from_user.name%></a>
+                          </p>
+            <%}else{%>
+                <p>
+                    <span> <img src="<%=dp.to_user.avatar%>" alt="<%=dp.to_user.name%>" width="50px"></span>  <a href="/users/profile/<%=dp.to_user.id%>"><%=dp.to_user.name%></a>
+                  </p>
+            <%}}}%>
+
+            
+        </div>
+      <div class="all-users">  <h4>All Users</h4>
         <% for (u of all_users) {%>
      
           
@@ -32,6 +49,7 @@
     </p>
             <%}%>
     </section>
+</div>
             
     <%}%>
 

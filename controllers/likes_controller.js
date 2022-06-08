@@ -8,7 +8,7 @@ module.exports.toggleLike=async function(req,res){
         //likes/toggle/?id=abcsc&type=Post
         let likeable;
         let deleted =false;
-        console.log(req.query)
+        // console.log(req.query)
         if(req.query.type=="Post"){
             likeable= await Post.findById(req.query.id).populate('likes');
 
@@ -16,7 +16,7 @@ module.exports.toggleLike=async function(req,res){
             likeable= await Comment.findById(req.query.id).populate('likes');
 
         }
-        console.log(likeable);
+        // console.log(likeable);
         //check if like i spreend
         let existingLike = await Like.findOne({
             likeable:req.query.id,
@@ -38,7 +38,7 @@ module.exports.toggleLike=async function(req,res){
              likeable:req.query.id,
              onModel:req.query.type
             });
-            console.log(likeable.likes);
+            // console.log(likeable.likes);
             likeable.likes.push(NewLike);
             likeable.save();
 

@@ -1,16 +1,16 @@
-{
+{   
+    //------ todo reflect chnge of friends number using ajax currently it will chnge on refresh as page loaded again-----------
      let addFriend=function(){
-         $('.friend-request>a').click(function(e){
+         $('.add-friend-button').click(function(e){
              e.preventDefault();
 
-        
 
          $.ajax({
              method:'post',
-             url:$('.friend-request>a').attr('href')
+             url:$('.add-friend-button').attr('href')
          })
          .done(function(data){
-            $(`.add-friend-button-${data.data.friendAdded}`).remove();
+            $('.add-friend-button').remove();
 
             let removeButton = add_remove_button(data.data.newFriend._id);
             $('.friend-request').prepend(removeButton);
@@ -32,14 +32,14 @@
 
      let deleteFriend=function(){
          console.log('deleteFriends')
-        $('.friend-request>a').click(function(e){
+        $('.remove-friend-button').click(function(e){
             e.preventDefault();
          $.ajax({
              method:'post',
-             url:$('.friend-request>a').attr('href')
+             url:$('.remove-friend-button').attr('href')
         })
         .done(function(data){
-            $('.friend-request>a').remove();
+            $('.remove-friend-button').remove();
             let addButton=add_addfriend_button(data.data.to_id);
             $('.friend-request').prepend(addButton);
             // $('.remove-friend-button').html('Add Friend');
@@ -57,19 +57,20 @@
     }
     
     let add_remove_button=function(el){
-        return $(`<a class="remove-friend-button-${el}" href="/friends/remove/${el}">
+        return $(`<a class="remove-friend-button" href="/friends/remove/${el}">
         Remove Friend
 </a>`)
     }
 
     let add_addfriend_button=function(el){
-        return $(`<a class="add-friend-button-${el}" href="/friends/add/${el}">
+        return $(`<a class="add-friend-button" href="/friends/add/${el}">
         Add Friend
 </a>`
         ) 
     }
 
      addFriend();
+     deleteFriend();
      
 
 }

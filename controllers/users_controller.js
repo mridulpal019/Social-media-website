@@ -3,19 +3,54 @@ const passport=require('passport');
 //for deleting multiple copies of file uploaded
 const fs=require('fs');
 const path=require('path');
+const Friend=require('../models/friend');
+const { populate } = require('../models/friend');
 
-module.exports.profile= function(req,res){
+module.exports.profile=async function(req,res){
+       try{
+        
+        let users= await User.findById(req.params.id)
+        .populate({
+            path:'friends',
+            populate:{ 
+                path:'to_user from_user',
+                populate:'name avatar'
+            }               
+        });
+      
+        let friend=await Friend.find({from_user:{$in :[req.user.id,req.params.id]},
+                                        to_user:{$in :[req.user.id,req.params.id]}
+        })
+        
+        let exist;
+        if(friend.length>0){
+         
+            exist=friend[0].id;
 
-    
-        User.findById(req.params.id,function(err,user){
-            if(err){}
-            return res.render('user_profile', {
-                title: 'User Profile',
-                profile_user:user
-
-            })
+        }
+   
+        return res.render('user_profile', {
+            title: 'User Profile',
+            profile_user:users,
+            friend:exist
 
         })
+
+       }catch(err){
+           console.log('err in profile page',err);
+           return res.redirect('back');
+       }
+   
+    
+        // User.findById(req.params.id,function(err,user){
+        //     if(err){}
+        //     return res.render('user_profile', {
+        //         title: 'User Profile',
+        //         profile_user:user
+
+        //     })
+
+        // })
        
 }
 

@@ -5,6 +5,11 @@ module.exports.home =async function(req,res){
 
 //populate the user for each post and comment
 try{
+    // newFriend=await Friend.findById(newFriend)
+    //     .populate('from_user','name')
+    //     .populate('to_user','name')
+
+
     let posts =await Post.find({})
     .sort('-createdAt')//for sorting the post a/c to their time
     .populate('user')
@@ -18,12 +23,21 @@ try{
     // .populate('likes');//for post
 
     // console.log(posts)
-    
+    let loginuser= await User.findById(req.user.id)
+    .populate({
+        path:'friends',
+        populate:{ 
+            path:'to_user from_user',
+            populate:'name avatar'
+        }               
+    });
+
     let users= await User.find({});
         return res.render('home',{
         title:"Codeial |home",
         posts:posts,
-        all_users:users
+        all_users:users,
+        loginuser:loginuser
 
 });
 
