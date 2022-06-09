@@ -21,9 +21,11 @@ try{
     })
     // .populate('comments')
     // .populate('likes');//for post
-
+    let loginuser;
     // console.log(posts)
-    let loginuser= await User.findById(req.user.id)
+    
+    if( req.user){
+    loginuser= await User.findById(req.user.id)
     .populate({
         path:'friends',
         populate:{ 
@@ -31,7 +33,7 @@ try{
             populate:'name avatar'
         }               
     });
-
+    }
     let users= await User.find({});
         return res.render('home',{
         title:"Codeial |home",

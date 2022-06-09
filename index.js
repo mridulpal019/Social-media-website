@@ -16,7 +16,11 @@ const sassMiddleware=require('node-sass-middleware');
 //flash set up
 const flash= require('connect-flash');
 const customMiddleware = require('./config/middleware');
-
+//chating engine //setup the hat server t be used with socket.io
+const charServer=require('http').Server(app);//http inbuilt module
+const chatSockets=require('./config/chat_sockets').chatSockets(charServer);
+charServer.listen(5000);//we have to use different port
+console.log('chat server is listening to port 5000');
 //body parser for decrpting form data
 const bodyParser = require('body-parser');
 const store = require('express-session');

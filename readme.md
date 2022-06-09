@@ -33,6 +33,9 @@ nodemailer
 <!-- for queue-ing delayed jobs  -->
 kue
 
+<!-- for chatting engine -->
+socket.io
+
 
 software install
 mongodb
