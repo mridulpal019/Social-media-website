@@ -1,17 +1,18 @@
-<!-- CHANGE :: Creat the code for chat box -->
 <% if (locals.user){ %>
 	<div id="user-chat-box">
-		<ul id="chat-messages-list">
-			<li class="other-message">
-				<span>Other Message</span>
-			</li>
-			<li class="self-message">
-				<span>
-					Self Message
-				</span>
+		<div class="header"><h6>Welcome to Chatroom</h6> <a href="#"  id="close-chat" > X</a></div>
 				
+		<ul id="chat-messages-list">
+		  <%for (c of chats){ if (c.user_id == locals.user.id){%>
+			<li class="self-message">
+				  <span> <%= c.msg%> </span>
+				</li>
+		  <%}else{%>
+			<li class="other-message">
+			<span><%= c.msg%></span><br>
+			<sub> <%= c.messenger%></sub>
 			</li>
-
+			<%}}%>
 		</ul>
 		<div id="chat-message-input-container">
 			<input id="chat-message-input" placeholder="Type message here">

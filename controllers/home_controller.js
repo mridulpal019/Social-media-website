@@ -1,3 +1,4 @@
+const Chat = require('../models/chat');
 const  Post =require('../models/post');
 const User =require('../models/user');
 
@@ -35,11 +36,15 @@ try{
     });
     }
     let users= await User.find({});
+
+    let chats= await Chat.find({})
+    .sort('createdAt');
         return res.render('home',{
         title:"Codeial |home",
         posts:posts,
         all_users:users,
-        loginuser:loginuser
+        loginuser:loginuser,
+        chats:chats,
 
 });
 

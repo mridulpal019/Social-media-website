@@ -76,7 +76,7 @@ module.exports.updatecover= async function(req,res){
             })
 
            
-        }catch(rr){
+        }catch(err){
             req.flash('error',err);
             return res.redirect('back');
         }
@@ -207,4 +207,17 @@ module.exports.destroySession=function(req,res){
     return res.redirect('/');
 }
 
+module.exports.deactivate=async function(req,res){
+    try{
+        console.log('delete called successfully');
+        let user = await User.findById(req.params.id);
+        console.log(user);
+        return res.redirect('back');
+    }catch(err){
+        console.log(err,'in deactivation');
+        return res.redirect('back');
 
+    }
+    
+   
+}

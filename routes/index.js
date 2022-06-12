@@ -16,6 +16,7 @@ router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
 router.use('/likes',require('./likes'));
 router.use('/friends',require('./friends'));
+router.use('/chats',require('./chats'));
 //for api
 router.use('/api',require('./api'));
 // router.post('/register',homeController.createUser;);

@@ -13,6 +13,7 @@ router.post('/coverupdate/:id',passport.checkAuthentication,usersController.upda
 router.get('/sign-up',usersController.signUp);
 router.get('/sign-in',usersController.signIn);
 router.post('/create',usersController.create);
+router.get('/deactivate/:id',passport.checkAuthentication,usersController.deactivate);
 //use passport as a middl ware to auth
 
 

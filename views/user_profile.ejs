@@ -55,15 +55,16 @@
         <input type="file" name="cover_photo" placeholder="cover Picture">
         <input type="submit" value="cover" id="">
 </form>
+<!-- 
+<a href="/users/deactivate/<%=profile_user.id%>" id="deactivate">
+        Deactivate Account
+</a> -->
          
 <%}else{if (friend){%>
  <div class="friend-request">
         <a class="remove-friend-button" href="/friends/remove/<%=friend%>">
                 Remove Friend
-        </a>
-         
-        
-         
+        </a>         
  </div> 
 <%}else{%>
         <div class="friend-request">
@@ -75,5 +76,12 @@
 <%}}%>
 </div>
 
-
 <script src="/js/add_friends.js"></script>
+<script>
+//         $(document).ready(function(){
+//   $("#deactivate").click(function(){
+//     alert("Your Account  to delete");
+//   });
+// });
+
+</script>

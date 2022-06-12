@@ -1,4 +1,5 @@
 {   
+
     //------ todo reflect chnge of friends number using ajax currently it will chnge on refresh as page loaded again-----------
      let addFriend=function(){
          $('.add-friend-button').click(function(e){
