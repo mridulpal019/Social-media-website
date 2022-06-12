@@ -1,6 +1,34 @@
 <li id="comment-<%= comment._id %>">
-    <p>
-        <!---todo add chck so that user can deeltet its post comments-->
+    <div class="comment-user-info">
+        <div class="image-name">
+            <img src="<%=comment.user.avatar%>" alt="<%=comment.user.name%>">  
+            <div class="name-created">
+                <a href="/users/profile/<%=comment.user.id%>">
+                <p><%= comment.user.name %></p></a>
+                <p> <%= comment.content%></p>
+                <!-- <small><%=post.createdAt.toDateString() + ' at ' +post.createdAt.getHours() +':' +post.createdAt.getMinutes()%></small> -->
+            </div>
+            <!---todo add chck so that user can deeltet its post comments-->
+        <% if ((locals.user) && ( (locals.user.id == post.user.id) || (locals.user.id == comment.user.id))) {%>
+            <small>
+                <a class="delete-comment-button" href="/comments/destroy/<%= comment.id%>">Delete</a>
+            </small>
+            <%}%>
+        </div>
+       
+        
+    </div>
+    <small>
+        <% if (locals.user){ %>
+            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                    <%= comment.likes.length %> Likes
+            </a>
+        <% }else{ %>
+            <%= comment.likes.length %> Likes
+        <% } %>
+    </small>
+    <!-- <p>
+         -todo add chck so that user can deeltet its post comments --><!--
         <% if ((locals.user) && ( (locals.user.id == post.user.id) || (locals.user.id == comment.user.id))) {%>
             <small>
                 <a class="delete-comment-button" href="/comments/destroy/<%= comment.id%>">Delete</a>
@@ -18,5 +46,6 @@
                 <%= comment.likes.length %> Likes
             <% } %>
         </small>
-    </p>
+    </p> -->
 </li>
+

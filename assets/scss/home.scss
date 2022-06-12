@@ -1,4 +1,3 @@
-
 #home-container{
     display: flex;
     // height: 100%;
@@ -6,6 +5,125 @@
         width:80%;
         padding: 10px;
         height: 100%;
+        #new-post-form{
+            width:68%;
+            margin: auto;
+            margin-left: 17%;
+            padding: 1%;
+            background-color: white;
+            margin-bottom:1%;
+            img{
+                width:50px;
+                height: 50px;
+                border-radius: 50%;
+                margin:.5%;
+            }
+            input[type='submit']{
+                // margin-left:25% ;
+                width: 100%;
+                background-color: rgb(151, 136, 214);
+                border: none;
+                padding: 2%;
+                color: white;
+                border-radius: 10px;
+            }
+        }
+        .toggle-like-button{
+            // text-decoration: ;
+            color: black;
+        }
+        #posts-list-container{
+            ul{ list-style: none;
+                width:70%;
+                margin: auto;
+                li{ padding: 1%;
+                    background-color: white;
+                    margin-bottom:1%;
+                    .image-name{
+                        width: 95%;
+                        display: flex;
+                        align-items: center;
+                        a{
+                            text-decoration: none;
+                            color: gray;
+                        }
+                        a:hover{
+                            text-decoration:underline;
+                        }
+                            .name-created{
+                                width: 100%;
+                                a{
+                                    text-decoration: none;
+                                    color: black;
+                                    font-size: 1.2rem;
+                                    margin: none;
+                                }
+                                small{
+                                    display: inline-block;
+                                    margin-block-start: 0;
+                                    font-size: .8rem;
+                                }
+
+                                p{
+                                    margin-block-start: 0;
+                                    margin-block-end: 0;
+                                }
+
+                            }                                                   
+                }
+                    img{
+                        width:40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin:.5%;
+                    }
+                    .post-comments{
+                        form{display: flex;
+                             input[type='text']{
+                                 width: 80%;
+                                 border: none;
+                                 background-color:#bbc3c94a;
+                                 border-radius: 10px;
+                             }
+                             input[type='submit']{
+                                 border: none;
+                                 background-color: aliceblue;
+                                 color: rgb(84, 73, 73);
+                                 border-radius: 10px;
+                                 margin-left: .5%;
+                             }
+                             }
+                        #post-comments-list{
+                            ul{
+                                list-style: none;
+                                width: 100%;
+                                padding-inline-start: 10px;
+                                li{
+                                    background-color: #bbc3c94a;
+                                    margin-right: 3%;
+                                    border-radius: 8px;
+                                    .comment-user-info{
+                                        display: flex;
+                                        .name-created{
+                                            a{
+                                                font-size: 1rem;
+                                                font-weight:lighter;
+                                                font-family: 'Courier New', Courier, monospace;
+                                            }
+                                        }
+                                    }
+                                }
+            
+                            }
+                        }
+                    }
+                    .postuser-info{ 
+                        display: flex;   
+                          
+                }
+            } 
+            }
+        }
     }
     #users-friends{
         width:17%;

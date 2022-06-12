@@ -59,29 +59,33 @@ class PostComments{
 
     newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
-        return $(`<li id="comment-${ comment._id }">
-                        <p>
-                            
-                            <small>
-                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">Delete</a>
-                            </small>
-                            
-                            ${comment.content}
-                            <br>
-                            <small> 
-                           
-                            ${comment.user.name}
-                            </small>
-                            <small>
-                            
-                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                    0 Likes
-                                </a>
-                            
-                            </small>
-                        </p>    
+        return $(`<li id="comment-${comment._id}">
+        <div class="comment-user-info">
+            <div class="image-name">
+                <img src="${comment.user.avatar}" alt="${comment.user.name}">  
+                <div class="name-created">
+                    <a href="/users/profile/${comment.user._id}">
+                    <p>${comment.user.name}</p></a>
+                    <p> ${comment.content}</p>
+                </div>
+                <!---todo add chck so that user can deeltet its post comments-->
+          
+                <small>
+                    <a class="delete-comment-button" href="/comments/destroy/${comment._id}">Delete</a>
+                </small>
 
-                </li>`);
+            </div>
+             
+        </div>
+        <small>
+       
+                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                       0 Likes
+                </a>
+         
+        </small>
+       
+    </li>`);
     }
 
 

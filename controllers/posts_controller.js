@@ -12,11 +12,11 @@ module.exports.create= async function(req,res){
       });
       //opulating user before sending the data so that we can access user.name in post section
       let ppost=await Post.findById(post._id)
-             .populate('user','name');//only name is populated
-    
+             .populate('user');
+     
   
 
- 
+
 //for sending data back 
 if(req.xhr){
   return res.status(200).json({
@@ -27,12 +27,14 @@ if(req.xhr){
 })
 }
 
+req.flash('success','Posted Successfully')
+return res.redirect('back');
+
   }catch(err){
 req.flash('error',err)
 return res.redirect('back');
   }
 }
-
 
 module.exports.destroy = async function(req,res){
 try{

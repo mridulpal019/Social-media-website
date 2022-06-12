@@ -1,14 +1,32 @@
 <li id="post-<%= post.id %>">
+<div class="postuser-info">
+    <div class="image-name">
+        <img src="<%=post.user.avatar%>" alt="<%=post.user.name%>">  
+        <div class="name-created">
+            <a href="/users/profile/<%=post.user.id%>">
+            <p><%= post.user.name %></p></a>
+            
+            <small><%=post.createdAt.toDateString() + ' at ' +post.createdAt.getHours() +':' +post.createdAt.getMinutes()%></small>
+        </div>
+        <% if ((locals.user) && (locals.user.id == post.user.id)) {%>
+            <small>
+                <a class="delete-post-button" href="/posts/destroy/<%= post.id%>">Delete</a>
+            </small>
+            <%}%>
+    </div>
+    
+</div>
     <!--- check for user if he can delete it-->
-    <p><% if ((locals.user) && (locals.user.id == post.user.id)) {%>
-        <small>
-            <a class="delete-post-button" href="/posts/destroy/<%= post.id%>">Delete</a>
-        </small>
-        <%}%>
+    <p>
 
-    <%= post.content %>
+    <%= post.content%>
     <br>
-    <small><%= post.user.name %></small>
+    <!-- <%if (post.post_media){%>
+        <img src="<%=post.post_media%>" alt="<%=post.user.name%>" width="110px" height="110px">  
+      
+     <%}%>    -->
+    <hr>
+   
     <small>
         <% if (locals.user){ %>
             <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
@@ -22,8 +40,10 @@
  </p>
  <div class="post-comments">
  <% if (locals.user) {%>
- <form action="/comments/create" method="post" id="post-<%=post._id%>-comments-form">
-     <textarea name="content"  cols="20" rows="2" placeholder="write your comment here" required></textarea>
+ <form action="/comments/create" method="post"  id="post-<%=post._id%>-comments-form">
+    <img src="<%=locals.user.avatar%>" alt="<%=locals.user.name%>" width="40px" height="40px">  
+     <!-- <textarea name="content"  cols="20" rows="2" placeholder="write your comment here" required></textarea> -->
+     <input type="text" name="content" placeholder="write your comment here" required>
      <input type="submit" value="Comment">
      <input type="hidden" name="post" value="<%= post._id%>">
  </form>
