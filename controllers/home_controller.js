@@ -40,7 +40,7 @@ try{
     let chats= await Chat.find({})
     .sort('createdAt');
         return res.render('home',{
-        title:"Codeial |home",
+        title:"Home",
         posts:posts,
         all_users:users,
         loginuser:loginuser,

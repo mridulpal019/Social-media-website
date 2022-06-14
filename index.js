@@ -87,7 +87,7 @@ app.use(session({
     }, 
     store :  MongoStore.create ({
         
-            mongoUrl:process.env.MONGO,
+            mongoUrl:`mongodb://localhost/${env.db}`,
             autoRemove:'disabled'
         
     },

@@ -8,7 +8,7 @@
     "npm":"8.5.5"
   },
   "scripts": {
-    "start": "npm index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prod_start": "SET NODE_ENV=production & nodemon index.js"
   },

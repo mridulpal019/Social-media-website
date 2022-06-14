@@ -44,7 +44,6 @@ gulp -cli -g
 gulp
 
 
-
 software install
 mongodb
 redis
