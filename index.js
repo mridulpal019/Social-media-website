@@ -7,7 +7,7 @@ const cookieParser=require('cookie-parser');
 const app=express()
 require('./config/view-helpers')(app);
 
-const port=8000; //80 for production
+const port=process.env.PORT || 8000; //80 for production
 const expressLayouts= require('express-ejs-layouts');
 const db = require("./config/mongoose");
 //auth part for pass port and express session(session cookie)
