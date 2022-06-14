@@ -14,7 +14,7 @@ const development={
     name:'development',
     asset_path:"./assets",
     session_cookie_key:"mridulll",
-    db:'codeial_devolopment_db',
+    db:process.env.MONGO,
     smtp:{
         service:'gmail',
         host:"smtp.gmail.com",
@@ -41,7 +41,7 @@ const production={
     name:'production',
     asset_path:process.env.codeial_asset_path,
     session_cookie_key:process.env.Codeial_Session_cookie_Key,
-    db:process.env.Codeial_db,
+    db:process.env.MONGO,
     smtp:{
         service:'gmail',
         host:"smtp.gmail.com",
