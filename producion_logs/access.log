@@ -127,3 +127,127 @@
 ::1 - - [14/Jun/2022:13:12:13 +0000] "GET / HTTP/1.1" 304 - "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
 ::1 - - [14/Jun/2022:13:12:13 +0000] "GET /images/pp.jpg HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
 [0mGET / [32m200[0m 83.066 ms - 16022[0m
+::1 - - [14/Jun/2022:13:40:05 +0000] "GET / HTTP/1.1" 200 3607 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:05 +0000] "GET /images/pp.jpg HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:09 +0000] "GET /users/sign-in HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:14 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:14 +0000] "GET / HTTP/1.1" 200 6361 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:14 +0000] "GET /images/pp.jpg HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:25 +0000] "POST /chats/create HTTP/1.1" 200 82 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:38 +0000] "GET /users/sign-out HTTP/1.1" 302 46 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:38 +0000] "GET / HTTP/1.1" 200 3607 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+::1 - - [14/Jun/2022:13:40:38 +0000] "GET /images/pp.jpg HTTP/1.1" 404 152 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36"
+[0mGET / [32m200[0m 60.816 ms - 16022[0m
+[0mGET /favicon.ico [33m404[0m 4.414 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 8.934 ms - 2582[0m
+[0mGET /users/css/layout.css [33m404[0m 8.629 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 14.809 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 9.864 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 11.194 ms - 165[0m
+[0mGET /users/sign-in [36m304[0m 5.814 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 4.649 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 5.161 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 7.654 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 4.793 ms - 165[0m
+[0mGET /users/css/header.css [33m404[0m 4.968 ms - 159[0m
+[0mGET /users/css/layout.css [33m404[0m 5.116 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 6.435 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 7.496 ms - 165[0m
+[0mGET / [36m304[0m 34.575 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 4.175 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 4.608 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 4.685 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 6.235 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 7.384 ms - 165[0m
+[0mGET /users/sign-in [36m304[0m 6.708 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 5.582 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 6.888 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 2.291 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 2.934 ms - 165[0m
+[0mGET /users/sign-in [36m304[0m 5.133 ms - -[0m
+[0mGET /users/css/layout.css [33m404[0m 4.142 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 3.378 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 7.569 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 7.780 ms - 165[0m
+[0mGET /users/css/layout.css [33m404[0m 5.217 ms - 159[0m
+[0mGET /users/css/header.css [33m404[0m 4.374 ms - 159[0m
+[0mGET /users/css/footer.css [33m404[0m 5.179 ms - 159[0m
+[0mGET /users/css/user_sign_in.css [33m404[0m 4.945 ms - 165[0m
+[0mPOST /users/create-session [36m302[0m 11.646 ms - 46[0m
+[0mGET / [32m200[0m 76.391 ms - 32723[0m
+[0mPOST /chats/create [32m200[0m 16.097 ms - 82[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [32m200[0m 19.923 ms - 4478[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 12.542 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 11.653 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 14.658 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 15.569 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 7.833 ms - 170[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 14.111 ms - -[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 5.436 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 6.117 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 6.603 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 8.547 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 2.769 ms - 170[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 9.203 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 10.563 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 10.571 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 9.700 ms - 173[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 12.783 ms - -[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 15.621 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 17.958 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 16.093 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 16.227 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 11.053 ms - 170[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 9.079 ms - -[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 11.657 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 14.600 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 14.709 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 15.640 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 15.108 ms - 170[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 13.229 ms - -[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 12.426 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 13.217 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 12.789 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 14.225 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 11.661 ms - 170[0m
+[0mGET / [32m200[0m 47.342 ms - 32562[0m
+[0mGET /users/profile/628bf84c4f732cbb92a71d16 [32m200[0m 19.618 ms - 3473[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 12.937 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 14.209 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 12.282 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 12.297 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 16.318 ms - 170[0m
+[0mGET /friends/add/628bf84c4f732cbb92a71d16 [33m404[0m 4.532 ms - 175[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 15.371 ms - -[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 12.240 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 12.278 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 13.528 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 12.236 ms - 173[0m
+[0mGET /users/profile/js/add_friends.js [33m404[0m 4.848 ms - 170[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 10.873 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 11.084 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 8.265 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 9.752 ms - 173[0m
+[0mGET /users/profile/css/layout.css [33m404[0m 7.750 ms - 167[0m
+[0mGET /users/profile/css/header.css [33m404[0m 8.799 ms - 167[0m
+[0mGET /users/profile/css/footer.css [33m404[0m 9.781 ms - 167[0m
+[0mGET /users/profile/css/user_profile.css [33m404[0m 11.241 ms - 173[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [32m200[0m 38.711 ms - 4483[0m
+[0mGET / [32m200[0m 78.019 ms - 32571[0m
+[0mGET /users/profile/628bdadfe33918f59c953af9 [36m304[0m 16.203 ms - -[0m
+[0mGET / [36m304[0m 53.614 ms - -[0m
+[0mGET /users/profile/629539a5cbfe8f4a9f9b5a02 [32m200[0m 17.063 ms - 3524[0m
+[0mPOST /friends/add/629539a5cbfe8f4a9f9b5a02 [32m200[0m 32.825 ms - 354[0m
+[0mGET /users/profile/629539a5cbfe8f4a9f9b5a02 [32m200[0m 17.435 ms - 3649[0m
+[0mGET / [32m200[0m 44.735 ms - 32809[0m
+[0mPOST /posts/create [32m200[0m 14.453 ms - 589[0m
+[0mPOST /comments/create [32m200[0m 26.888 ms - 310[0m
+[0mGET /undefined [33m404[0m 6.896 ms - 148[0m
+[0mGET /posts/destroy/62a441aa12241df9e85f9376 [32m200[0m 19.596 ms - 72[0m
+[0mGET /comments/destroy/62a8b2b3d09a1d49742aad09 [32m200[0m 13.130 ms - 75[0m
+[0mGET /users/sign-out [36m302[0m 6.873 ms - 46[0m
+[0mGET / [32m200[0m 28.437 ms - 16035[0m
+[0mGET /users/sign-in [32m200[0m 9.048 ms - 2588[0m
+[0mGET /users/auth/google [36m302[0m 4.021 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0AX4XfWiJrZUlDeB2Wy87U6vdwV28JsUfNGqQJgv1dd3e78x0qpM5hAwkBlJ4xMeJAcwnUQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 965.276 ms - 46[0m
+[0mGET / [32m200[0m 42.302 ms - 29787[0m

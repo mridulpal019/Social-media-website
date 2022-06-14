@@ -22,7 +22,7 @@ const development={
         secure:false,
         auth:{
             user:'mridulpal1917@gmail.com',
-            pass:'ksouqwhnjlipcyiv'
+            pass:'-------'
         }
     
     },
@@ -64,4 +64,5 @@ const production={
 };
 
 
-module.exports =eval(process.env.Codeial_ENV) == undefined ? development : eval(process.env.Codeial_ENV);
+module.exports =development
+// eval(process.env.Codeial_ENV) == undefined ? development : eval(process.env.Codeial_ENV);
