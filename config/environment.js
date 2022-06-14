@@ -22,12 +22,12 @@ const development={
         secure:false,
         auth:{
             user:'mridulpal1917@gmail.com',
-            pass:'-------'
+            pass:'----'
         }
     
     },
     goggle_client_id:"227730572170-gpur4ct3tqtolfnknld598qc86g9sr1i.apps.googleusercontent.com",//from app
-    goggle_client_Secret:"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",//from google
+    goggle_client_Secret:"--------",//from google
     goggle_callbackURL:"http://localhost:8000/users/auth/google/callback" ,//callbackurl mathcing from developers.google 
     jwt_secret:'Sometthing',
     morgan:{
