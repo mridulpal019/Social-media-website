@@ -1,0 +1,51 @@
+body #layout-main {
+  height: auto;
+}
+
+.profile_outer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.profile_outer .cover_photo {
+  height: 70vh;
+}
+
+.profile_outer .cover_photo img {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.profile_outer .info-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile_outer .info-box .profile-pic {
+  margin-left: 2%;
+  margin-top: -6%;
+  z-index: 1;
+}
+
+.profile_outer .info-box .profile-pic img {
+  border: 5px solid whitesmoke;
+  border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+}
+
+.profile_outer .info-box .profile-pic button {
+  margin-left: -20%;
+}
+
+.profile_outer .info-box .username {
+  font-size: larger;
+  font-weight: bolder;
+  font-family: sans-serif;
+  margin-left: 2%;
+  margin-top: 2%;
+}

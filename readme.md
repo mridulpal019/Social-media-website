@@ -35,6 +35,14 @@ kue
 
 <!-- for chatting engine -->
 socket.io
+<!-- for storing logs in production  -->
+morgan
+<!-- for saving logs in file and delete in regular intevals-->
+rotating-file-stream
+<!-- for compressing projext for procduction -->
+gulp -cli -g
+gulp
+
 
 
 software install
