@@ -4,7 +4,7 @@ class ChatEngine{
         this.userId=userId;
         this.username=username;
 
-        this.socket =io.connect('http://localhost:5000')
+        this.socket =io.connect('http://3.94.180.106:5000')
         // ,{
         //     withCredentials:true,
         // });
